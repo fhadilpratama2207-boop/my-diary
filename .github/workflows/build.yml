@@ -17,10 +17,21 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install
+          npm install @capacitor/assets --save-dev
+
+      - name: Prepare icon
+        run: |
+          mkdir -p resources
+          cp icon.png resources/icon.png
+          cp icon.png resources/splash.png
 
       - name: Add Android platform
         run: npx cap add android
+
+      - name: Generate icons & splash
+        run: npx capacitor-assets generate --android
 
       - name: Sync
         run: npx cap sync
