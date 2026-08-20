@@ -1,0 +1,8 @@
+{
+  "appId": "com.mydiary.app",
+  "appName": "My Diary",
+  "webDir": ".",
+  "server": {
+    "androidScheme": "https"
+  }
+}
